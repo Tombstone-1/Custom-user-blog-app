@@ -1,8 +1,38 @@
-{% extends 'posts/post_base.html' %}
+{% extends 'posts/POST_index.html' %}
 {% load static %}
 
 {% block 'title' %}<title>Home</title> {% endblock %}
 {% block 'main_content' %}
  <h1> Home </h1>
- <a href="{url '/accounts/logout'}">logout</a>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Recipe name</th>
+            <th>Preparation</th>
+            <th>tags</th>
+            <th>created_on</th>
+            <th>updated_on</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.recipe_name}}</td>
+            <td>{{x.preparation}}</td>
+            <td>{{x.tags}}</td>
+            <td>{{x.created_on}}</td>
+            <td>{{x.updated_on}}</td>
+            <td><a href="{% url 'update_post' x.id %}">update</a></td>
+            <td><a href="{% url 'delete_post' x.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+ <a href="{% url 'logout' %}">logout</a>
+ <a href="{% url 'create_post' %}">Upload a Recipe</a>
 {% endblock %}

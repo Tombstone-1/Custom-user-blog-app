@@ -22,6 +22,7 @@ Some points to note :
 3) both settings.py and helpers.py will be changed for host ID and Password.
 4) Account model will store token and match with user at resetting time.
 5) db and cache files will not be in repo.
+6) database changed to mysql 
 
 error:
 
@@ -29,6 +30,7 @@ error:
 2) setup and migrate whole as db is not included here.
 3) refer requirement.txt for dependancy issue.
 
-update:
+future plans:
 
 1) still have left blog design to do.
+2) centralize static and templates folder.

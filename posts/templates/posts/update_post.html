@@ -1,0 +1,14 @@
+{% extends 'posts/POST_index.html' %}
+{% load static %}
+
+{% block 'title' %}<title>update_post</title> {% endblock %}
+{% block 'main_content' %}
+ <h1> update_post </h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{update_post.as_p}}
+        <button type="submit">Make changes</button>
+    </form>
+
+{% endblock %}

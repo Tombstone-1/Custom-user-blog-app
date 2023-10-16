@@ -1,0 +1,15 @@
+{% extends 'posts/POST_index.html' %}
+{% load static %}
+
+{% block 'title' %}<title>delete</title> {% endblock %}
+{% block 'main_content' %}
+ <h1> delete </h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        Are you sure you want to delete this?
+        <button type="submit">Yesss</button>
+        <button type="reset">No</button>
+    </form>
+
+{% endblock %}
