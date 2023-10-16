@@ -1,0 +1,48 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block 'title' %} {% endblock %}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/toast_style.css' %}">
+
+</head>
+  <body>
+    <!-- for message system / keep separate -->
+
+    <ul class="notifications">
+
+      {% for message in messages %}
+      <li class="toast {{message.tags}}">
+          <div class="column">
+          {% if message.tags == 'success' %}
+              <i class="fa-solid fa-circle-check"></i>
+          {% elif message.tags == 'error' %}
+              <i class="fa-solid fa-circle-xmark"></i>
+          {% elif message.tags == 'warning' %}
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              {% else %}
+              <i class="fa-solid fa-circle-info"></i>
+          {% endif %}
+          <span>{{message}}</span>
+          </div>
+          <i class="fa-solid fa-xmark" onclick="removeToast()"></i>
+      </li>
+      {% endfor %}    
+
+  </ul>
+
+    <!--  end messanger -->
+
+    {% block 'main_content' %} {% endblock %}
+    
+    <!-- javascripts -->
+    
+    <script type="text/javascript" src="{% static 'js/toast_script.js' %}"></script>
+  </body>
+</html>
+

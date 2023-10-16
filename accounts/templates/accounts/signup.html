@@ -1,0 +1,44 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block 'title' %}<title>Signup</title> {% endblock %}
+{% block 'main_content' %}
+
+    <div class="container" id="container">
+      <div class="log-reg-bg"></div>
+      <div class="form-container">
+        <div class="greet">
+          <h2>Welcome to Delicious <span class="wave"> 🥗 </span></h2>
+          <p>Learn . Cook . Share</p>
+        </div>
+        <form name="signup_form" onsubmit="return validateForm()" method="POST">
+          <h2> Sign up</h2>
+          {% csrf_token %}
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" name="{{ signup_form.email.html_name}}" maxlength="30" required>
+            <label>Email ID</label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" id="id_pass1" name="{{ signup_form.password1.html_name }}" maxlength="15" helptext="password should be more than 7 characters" required>
+            <label>password</label>
+          </div>
+          <p class="formerror"></p>     
+          <div class="input-box">
+            <span class="icon"><i class="fa-solid fa-key"></i></span>
+            <input type="password" id="id_pass2" name="{{ signup_form.password2.html_name }}" maxlength="15" required>
+            <label>Confirm Password</label>
+          </div>
+          <div class="show-forget">
+            <label><input type="checkbox" onclick="toggle_pass()">Show Password</label>
+        </div>
+          <button class="btn" type="submit">Sign up</button>
+            <div class="link">
+                <p>Already Have an Account ? <a href="{% url 'login' %}"> Log In</a></p>
+            </div>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

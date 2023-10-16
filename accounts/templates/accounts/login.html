@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block 'title' %}<title>Login</title> {% endblock %}
+{% block 'main_content' %}
+
+<!-- do not change form data parameter name as we are taking it's default value and not django form value -->
+
+    <div class="container" id="container">
+      <div class="log-reg-bg"></div>
+      <div class="form-container">
+        <div class="greet">
+          <h2>Welcome Back <span class="wave">👋🏽</span></h2>
+          <p>Learn . Cook . Serve</p>
+        </div>
+        <form action="" method="POST">
+          <h2>Delicious</h2>
+              {% csrf_token %}
+            <div class="input-box">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <input type="email" name="email" maxlength="30" required>
+                <label>Email ID</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="id_pass1" name="password" maxlength="15" required>
+                <label>Password</label>
+            </div>
+            <div class="show-forget">
+                <label><input type="checkbox" onclick="toggle_pass()">show password</label>
+                <a href="{% url 'password_reset' %}">forgot password ?</a>
+            </div>
+            <button class="btn" type="submit">Log in</button>
+            <div class="link">
+                <p>Don't have an account ? <a href="{% url 'signup' %}"> Sign up</a></p>
+            </div>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

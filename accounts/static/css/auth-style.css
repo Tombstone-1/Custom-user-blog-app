@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Pacifico&family=Poppins&family=Cabin:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth ;
+}
+
+/* wave animations */
+.wave {
+margin-bottom: -20px;
+animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+animation-duration: 2.5s;        /* Change to speed up or slow down */
+animation-iteration-count:initial;  /* Never stop waving :) */
+transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+display: inline-block;
+font-size: 75px;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+    10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+100% { transform: rotate( 0.0deg) }
+}
+
+/* common-animations */
+
+@keyframes sildein-animation{
+    0% {transform: translateX(20px)}
+    100% {transform: translateX(0px)}
+}
+
+ /* common-lines */
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+.active-blur{
+    filter : blur(12px);
+    pointer-events: none;
+    user-select: none;
+}
+.log-reg-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;  /* non appearence resolve */
+    background-image: url("/static/images/log-bg-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    filter: brightness(0.5)
+}
+.form-container{
+    padding: 0 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+}
+.form-container form h2{
+    font-family: 'pacifico', 'cursive';
+    font-size: 40px; 
+    font-weight: bolder;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 15px #48abe0;
+}
+.greet h2{
+    font-family: 'pacifico', 'cursive';
+    font-size: 40px; 
+    font-weight: bolder;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.greet p{
+    font-family: 'kanit', sans-serif;
+    font-size: 28px;
+    color: #fff;
+    padding-left: 20px;
+}
+
+/* form */
+
+.input-box{
+    position: relative;
+    width: 370px;
+    margin: 30px 5px;
+    border-bottom: 2px solid #FDFEFF;
+}
+.input-box label{
+    position : absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #FDFEFF;
+    pointer-events: none;
+    transition : .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #FDFEFF;
+    cursor: pointer;
+    padding-right: 35px;
+    padding-left: 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    color: #FDFEFF;
+    font-size: 20px;
+    line-height: 57px;
+}
+.show-forget{
+    margin: 15px 10px;
+    font-size: 15px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+.show-forget label input{
+    margin-right: 3px;
+}
+.show-forget a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.btn{
+    width: 100%;
+    height: 40px;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor : pointer;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 500;
+}
+.link{
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    margin: 25px 0 10px; 
+}
+.link p a{
+    color:#ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding-left: 2px;
+}
+.link a{
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+/* password-layout */
+
+.pass-container{
+    height: 100vh;
+    width: 100vw;
+    background: #642B73;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: 180% 180%;
+    animation: bg-gradient 18s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes bg-gradient{
+    0%{
+     background-position: 0% 50%;   
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+.reset-form-container{
+    height: 500px;
+    width: 700px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 50px darkviolet; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.reset-form-container img{
+    height: 500px;
+    width: 50%;
+    margin-left: -1px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.reset-form {
+    height: 100%;
+    margin-left: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: white;
+}
+
+.reset-form h3.title {
+    margin: 15px 0;
+}
+
+.text-input {
+    background: #e6e6e6;
+    height: 40px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 15px;
+    margin: 5px 0;
+}
+
+.text-input input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.text-input i {
+    color: #686868;
+}
+
+::placeholder {
+    color: #9a9a9a;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to right, #ff966d, #fa538d, #89379c);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.pass_check{
+    font-size: 14px;
+    color: #9a9a9a;
+    margin-top: 12px;
+}
+input[type="checkbox"]{
+    width: 20px;
+    height: 12px;
+    cursor: pointer;
+}
+
+a {
+    font-size: 12px;
+    color: #9a9a9a;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+}
+
+a.forgot {
+    margin-top: 15px;
+}
+
+.create {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+}
+
+.create i {
+    color: #9a9a9a;
+    margin-right: 10px;
+}
+/* password reset and new end here */
+
+/* reponsive */
+@media (max-width : 900px) {
+    .container{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-container {
+        height: 100vh;
+        width: 100vw;
+        background: transparent;
+        backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .greet{
+        display: none;
+    }
+    .form-container form{
+        width: 390px;
+    }
+    .form-container form h2{
+        display: block;
+    }
+}

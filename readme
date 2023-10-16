@@ -1,0 +1,34 @@
+Delicious Django Recipes Blog app project:
+changed on 16 Oct 2023.
+
+#################################################################################################################
+
+This project is for blog posting recipes. the account section is done with all functionality like :
+
+1) create user with django abstract user (minimal django default user model).
+2) signup and signin pages.
+3) password reset and new password creation with email support.
+4) Django custom user with Custom model and objects manager.
+5) default user creation for superuser and user is changed.
+6) working new custom (user.admin) admin panel as previous version was not hasing password and keep it on display.
+7) basically a boiler plates files for adding cutom user model app in your projects.
+8) also include custom toast alert for all pages just have to setup those static files.
+9) centrallize media folder.
+
+Some points to note :
+
+1) clearing django security key.
+2) clearing smtp configuration as it posses important info.
+3) both settings.py and helpers.py will be changed for host ID and Password.
+4) Account model will store token and match with user at resetting time.
+5) db and cache files will not be in repo.
+
+error:
+
+1) there might be this error on email resetting if you not using internet while sending email. catch it with try and except block.
+2) setup and migrate whole as db is not included here.
+3) refer requirement.txt for dependancy issue.
+
+update:
+
+1) still have left blog design to do.
